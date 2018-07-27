@@ -3,7 +3,7 @@
  * Maria Giulia Cecchini 
  * [Federico Ponzi](https://fponzi.me)
  
-[Prof. Sterbini](http://twiki.di.uniroma1.it/twiki/view/Users/AndreaSterbini) - [Course page](http://twiki.di.uniroma1.it/twiki/view/Legolab/WebHome)
+[Prof. Sterbini](http://twiki.di.uniroma1.it/twiki/view/Users/AndreaSterbini) - [Legolab course page](http://twiki.di.uniroma1.it/twiki/view/Legolab/WebHome)
 
 ## Aim of the project
 Realize a prototype of a simple autonomous-car, using computer vison and the Lego EV3 kit.
