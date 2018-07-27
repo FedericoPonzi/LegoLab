@@ -53,7 +53,7 @@ SEMAPHORE_GREEN(new Scalar(83, 244, 66)),
 SIGN_STOP(new Scalar(0, 255, 0));
 ```
 #### Stop detector
-<center><img src="https://raw.githubusercontent.com/FedericoPonzi/LegoLab/master/docs/physical-stop-signal.jpg" height="300"></center>
+<center><img src="https://raw.githubusercontent.com/FedericoPonzi/LegoLab/master/media/physical-stop-signal.jpg" height="300"></center>
 
 The stop detector is implemented through an Haar classifier, taken from [here](https://github.com/cfizette/road-sign-cascades/blob/master/Stop%20Signs/StopSign_HAAR/Stopsign_HAAR_19Stages.xml).
 The classifier is a result of 19 stages of training. Even though there are many over available classifier for stop sign online - and one can train its own - this was considered good enough.
@@ -77,7 +77,7 @@ mClassifier.detectMultiScale(mGray,
  In principle, it's possible to add new classifiers trained to detect more street signs and create a more complete system
 
 #### Semaphore Detector
-<center><img src="https://raw.githubusercontent.com/FedericoPonzi/LegoLab/master/docs/physical-traffic-light.jpg" height="300"></center>
+<center><img src="https://raw.githubusercontent.com/FedericoPonzi/LegoLab/master/media/physical-traffic-light.jpg" height="300"></center>
 
 The semaphore detector is handmade, using opencv. The idea is to:
  * Move from rgb to hsv color space:
@@ -115,7 +115,7 @@ Legobot will return the `Legobot.Analysis` most detected in the last second - an
 With a *100% rate detection* system one could in principle send the Analysis as soon as something is detected. Since this is not the case, we create a summary of findings of the last second to enhance the resiliency of the detection process.
  
 # Part 2: EV3 Bot
-<center><img src="https://raw.githubusercontent.com/FedericoPonzi/LegoLab/master/docs/ev3-1.jpg" width="30%"><img src="https://raw.githubusercontent.com/FedericoPonzi/LegoLab/master/docs/ev3-2.jpg" width="30%"><img src="https://raw.githubusercontent.com/FedericoPonzi/LegoLab/master/docs/ev3-3.jpg" width="30%"></center>
+<center><img src="https://raw.githubusercontent.com/FedericoPonzi/LegoLab/master/media/ev3-1.jpg" width="30%"><img src="https://raw.githubusercontent.com/FedericoPonzi/LegoLab/master/media/ev3-2.jpg" width="30%"><img src="https://raw.githubusercontent.com/FedericoPonzi/LegoLab/master/media/ev3-3.jpg" width="30%"></center>
 
 While the Android App has the duty to analyse the environment and detect the street signs, the EV3 has to implement the behaviour based on the findings.
 
@@ -202,6 +202,6 @@ public enum Analysis {
  
  ## HSV color picker
  In order to find the right color range, we used an HSV threshold color picker:
- <img src="https://raw.githubusercontent.com/FedericoPonzi/LegoLab/master/docs/hsv-colour.png">
+ <img src="https://raw.githubusercontent.com/FedericoPonzi/LegoLab/master/media/hsv-colour.png">
 The source code is available [here](https://gist.github.com/FedericoPonzi/1728542ae0c8057e43658a3216e385c5).
 
