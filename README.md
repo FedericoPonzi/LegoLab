@@ -90,17 +90,18 @@ The semaphore detector is handmade, using opencv. The idea is to:
  Imgproc.GaussianBlur(hsv, hsv, new Size(5, 5), 0);  
 Imgproc.medianBlur(hsv, hsv, 5);
 ```
- * Remove all the pixel not in the desired colorspace:
+ * Remove all the pixel not in the desired colorspace. For each pixel, this computes "white if pixel is in range, black otherwise".
  ```java
  Core.inRange(hsv, greenColors.get(0).first,  
   greenColors.get(0).second, hsv);
   ```
- * Apply HoughCircles algorithm to detect circles.
+ * Apply the HoughCircles algorithm to detect circles.
  ```java
- Imgproc.HoughCircles(hsv, circles, Imgproc.HOUGH_GRADIENT, 2,  
-  hsv.size().height / 4, 100, 50, 20, (int) hsv.size().height/8);
+ Imgproc.HoughCircles(hsv, circles, Imgproc.HOUGH_GRADIENT, 2,
+                      hsv.size().height / 4, 100, 30, (int)hsv.size().height/24,
+                      (int) hsv.size().height/15);
   ```
-  The parameters are tuned accordingly, in order to not detect the semaphore from too far or too close.
+  The parameters are tuned accordingly, in order to detect the traffic light not too close or too far back.
   
 ### Communication
 The `ConnectionHandler` class run in another thread and is constructed with a reference of the Legobot object. It sets up a socket to the EV3, and create another Timer thread. 
