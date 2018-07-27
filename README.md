@@ -202,11 +202,16 @@ public enum Analysis {
  ```
  The android app passes the `Analysis.ordinal()` to the EV3, using an `ObjectInputStream`.
  
- ### Example run:
-  An example of run is available [here](https://www.youtube.com/watch?v=fPX_oRDAnWo).
+ ### Video of an example run:
+ A video of the Legobot in action is available [here](https://www.youtube.com/watch?v=RuUpUt2jXuI).
+<p align="center">
+
+[![LegoLab](https://img.youtube.com/vi/RuUpUt2jXuI/0.jpg)](https://www.youtube.com/watch?v=RuUpUt2jXuI)
+
+</p>
+ There is also a video from the prespective of the [car](https://www.youtube.com/watch?v=fPX_oRDAnWo).
  
  <p align="center">
-
 [![LegoLab](https://img.youtube.com/vi/fPX_oRDAnWo/0.jpg)](https://www.youtube.com/watch?v=fPX_oRDAnWo)
  </p>
 
