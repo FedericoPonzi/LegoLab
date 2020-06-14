@@ -1,7 +1,9 @@
 
-# LegoLab
-Maria Giulia Cecchini 
-Federico Ponzi
+# LegoLab 2017-2018
+ * Maria Giulia Cecchini 
+ * [Federico Ponzi](https://fponzi.me)
+ 
+[Prof. Sterbini](http://twiki.di.uniroma1.it/twiki/view/Users/AndreaSterbini) - [Legolab course page](http://twiki.di.uniroma1.it/twiki/view/Legolab/WebHome)
 
 ## Aim of the project
 Realize a prototype of a simple autonomous-car, using computer vison and the Lego EV3 kit.
@@ -90,17 +92,18 @@ The semaphore detector is handmade, using opencv. The idea is to:
  Imgproc.GaussianBlur(hsv, hsv, new Size(5, 5), 0);  
 Imgproc.medianBlur(hsv, hsv, 5);
 ```
- * Remove all the pixel not in the desired colorspace:
+ * Remove all the pixel not in the desired colorspace. For each pixel, this computes "white if pixel is in range, black otherwise".
  ```java
  Core.inRange(hsv, greenColors.get(0).first,  
   greenColors.get(0).second, hsv);
   ```
- * Apply HoughCircles algorithm to detect circles.
+ * Apply the HoughCircles algorithm to detect circles.
  ```java
- Imgproc.HoughCircles(hsv, circles, Imgproc.HOUGH_GRADIENT, 2,  
-  hsv.size().height / 4, 100, 50, 20, (int) hsv.size().height/8);
+ Imgproc.HoughCircles(hsv, circles, Imgproc.HOUGH_GRADIENT, 2,
+                      hsv.size().height / 4, 100, 30, (int)hsv.size().height/24,
+                      (int) hsv.size().height/15);
   ```
-  The parameters are tuned accordingly, in order to not detect the semaphore from too far or too close.
+  The parameters are tuned accordingly, in order to detect the traffic light not too close or too far back.
   
 ### Communication
 The `ConnectionHandler` class run in another thread and is constructed with a reference of the Legobot object. It sets up a socket to the EV3, and create another Timer thread. 
@@ -199,11 +202,18 @@ public enum Analysis {
  ```
  The android app passes the `Analysis.ordinal()` to the EV3, using an `ObjectInputStream`.
  
- ### Example run:
-  An example of run is available [here](https://www.youtube.com/watch?v=fPX_oRDAnWo).
+ ### Video of an example run:
+ A video of the Legobot in action is available [here](https://www.youtube.com/watch?v=RuUpUt2jXuI).
+<p align="center">
+
+[![LegoLab](https://img.youtube.com/vi/RuUpUt2jXuI/0.jpg)](https://www.youtube.com/watch?v=RuUpUt2jXuI)
+
+</p>
+
+ There is also a video from the prespective of the [car](https://www.youtube.com/watch?v=fPX_oRDAnWo).
  
  <p align="center">
-
+	
 [![LegoLab](https://img.youtube.com/vi/fPX_oRDAnWo/0.jpg)](https://www.youtube.com/watch?v=fPX_oRDAnWo)
  </p>
 
